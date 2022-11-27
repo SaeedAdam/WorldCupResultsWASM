@@ -1,0 +1,67 @@
+﻿<!-- MATCH COL -->
+<div class="col-lg-12">
+
+    <div class="card shadow rounded-pill mt-5" style="overflow: hidden">
+        <!-- MATCH CARD -->
+        <div class="card-body p-0">
+            <div class="row">
+                <!-- FIRST TEAM COL -->
+                <div class="col-lg-3 bg-primary d-flex flex-direction-column justify-content-center align-items-center" style="border-right: solid 5px #5b0d25;">
+                    <div class="d-flex align-items-center justify-content-center" style="text-align: center; margin: auto 0">
+
+                        <div>
+                            <div class="flag">
+                                <img class="rounded-circle border border-2"
+                                     src="@Match.HomeTeam.Crest"
+                                     alt=""
+                                     style="width: 40px; height: 40px">
+                            </div>
+                            <h5 style="margin:auto 4px">@Match.HomeTeam.Tla</h5>
+                        </div>
+                    </div>
+                </div>
+                <!--// FIRST TEAM COL //-->
+                <div class="col-lg-2 d-flex justify-content-center align-items-center">
+                    <h3>
+                        @(Match.Score.FullTime.Home is null ? "-" : Match.Score.FullTime.Home)
+                    </h3>
+                </div>
+                <!-- VERSUS COL -->
+                <div class="col-lg-2 pt-3" style="text-align: center">
+                    <h6>@Match.Group.Replace('_', ' ')</h6>
+                    <h1>X</h1>
+                    <h6>@TimeOnly.FromDateTime(Match.UtcDate.ToLocalTime())</h6>
+                    <h4>@(Match.Status == "FINISHED" ? "انتهت" : Match.Status == "TIMED" ? "لم تبدأ" : "جاري الآن")</h4>
+                </div>
+                <!--// VERSUS COL //-->
+                <!-- SECOND TEAM COL -->
+                <div class="col-lg-2 d-flex justify-content-center align-items-center">
+                    <h3>
+                        @(Match.Score.FullTime.Away is null ? "-" : Match.Score.FullTime.Away)
+                    </h3>
+                </div>
+                <div class="col-lg-3 bg-primary d-flex flex-direction-column justify-content-center align-items-center" style="border-left: solid 5px #5b0d25;">
+                    <div class="d-flex align-items-center justify-content-center" style="text-align: center; margin: auto 0">
+
+                        <div>
+                            <div class="flag">
+                                <img class="rounded-circle border border-2"
+                                     src="@Match.AwayTeam.Crest"
+                                     alt=""
+                                     style="width: 40px; height: 40px">
+                            </div>
+                            <h5 style="margin:auto 4px">@Match.AwayTeam.Tla</h5>
+                        </div>
+                    </div>
+                </div>
+                <!--// SECOND TEAM COL //-->
+            </div>
+        </div>
+        <!--// MATCH CARD //-->
+    </div>
+</div>
+<!--// MATCH COL //-->
+@code {
+    [Parameter]
+    public MatchDto Match { get; set; }
+}

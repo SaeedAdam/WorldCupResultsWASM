@@ -1,0 +1,40 @@
+﻿<!-- TEAM -->
+<li class="list-group-item">
+    <div class="row">
+
+        <!-- TEAM -->
+        <div class="col-lg-4 d-flex align-items-center justify-content-center" style="text-align: center;">
+
+            <span class="flag">
+                <img class="rounded-circle border border-2"
+                     src="@Row.Team.Crest"
+                     alt=""
+                     style="width: 40px; height: 40px">
+            </span>
+            <h5 style="margin:auto 4px">@Row.Team.Tla</h5>
+        </div>
+        <!--// TEAM //-->
+        <!-- WIN -->
+        <div class="col-lg-2">
+            @Row.Won
+        </div>
+        <!--// WIN //-->
+        <!-- LOSS -->
+        <div class="col-lg-2">
+            @Row.Draw
+        </div>
+        <!--// LOSS //-->
+        <div class="col-lg-2">
+            @Row.Lost
+        </div>
+
+        <div class="col-lg-2">
+            <b>@Row.Points</b>
+        </div>
+    </div>
+</li>
+<!--// TEAM //-->
+@code {
+    [Parameter]
+    public TableDto Row { get; set; }
+}
